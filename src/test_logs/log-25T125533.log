@@ -1,0 +1,5 @@
+12:55:38.891 [main] INFO  com.telran.oscar.tests.TestBase - Start test: loginUserPositiveTest
+12:55:56.692 [main] ERROR com.telran.oscar.tests.TestBase - Test result: FAILD
+ru.yandex.qatools.ashot.Screenshot@47d7bfb3
+12:55:56.693 [main] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+12:55:56.693 [main] INFO  com.telran.oscar.tests.TestBase - *************************************

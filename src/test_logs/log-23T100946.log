@@ -1,5 +1,0 @@
-10:09:53.458 [main] INFO  com.telran.oscar.tests.TestBase - Start test: registerNewUserPositiveTest_
-10:10:11.108 [main] ERROR com.telran.oscar.tests.TestBase - Test result: FAILD
-ru.yandex.qatools.ashot.Screenshot@5f13be1
-10:10:11.109 [main] INFO  com.telran.oscar.tests.TestBase - Stop test: null
-10:10:11.111 [main] INFO  com.telran.oscar.tests.TestBase - *************************************

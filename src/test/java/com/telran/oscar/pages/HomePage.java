@@ -35,12 +35,17 @@ public class HomePage extends PageBase{
     @FindBy(xpath= "//a[.='Books']")
     WebElement booksTabOnSidePanel;
 
+    @FindBy(xpath = "//div[@class='alertinner wicon']")
+    WebElement successfullyDeleteProfileAlert;
+
+
+
     public HomePage selectCategory() {
         submenuBook.click();
         return this;
     }
 
-    public RegisterPage goToRegistration() {
+    public RegisterPage goToRegistrationAndLogin() {
         click(loginAndRegistrationTab,2);
         return new RegisterPage(driver);
     }
@@ -68,4 +73,12 @@ public class HomePage extends PageBase{
         click(booksTabOnSidePanel,2);
         return new BooksPage(driver);
     }
+
+    public String getMessageOfSuccessfullyDelProfileAlert(){
+        return successfullyDeleteProfileAlert.getText();
+    }
+
+
+
+
 }

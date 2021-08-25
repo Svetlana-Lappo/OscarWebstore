@@ -16,7 +16,7 @@ public class OrderHistoryPageTests extends TestBase{
     PaymentPage paymentPage;
     PreviewOrderPage previewOrderPage;
     ConfirmationPage confirmationPage;
-    ProfilePage profilePage;
+    AccountSidePanelPage accountSidePanelPage;
     OrderHistoryPage orderHistoryPage;
 
 
@@ -30,16 +30,16 @@ public class OrderHistoryPageTests extends TestBase{
         previewOrderPage = PageFactory.initElements(driver, PreviewOrderPage.class);
         confirmationPage = PageFactory.initElements(driver, ConfirmationPage.class);
         shippingAddressPage = PageFactory.initElements(driver, ShippingAddressPage.class);
-        profilePage = PageFactory.initElements(driver,ProfilePage.class);
+        accountSidePanelPage = PageFactory.initElements(driver,AccountSidePanelPage.class);
         orderHistoryPage = PageFactory.initElements(driver,OrderHistoryPage.class);
         homePage.selectLanguage("en-gb");
-        homePage.goToRegistration();
+        homePage.goToRegistrationAndLogin();
         loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn();
 
     }
 
     @Test
-    public void createOderPositiveTest(){
+    public void orderHistoryPositiveTest(){
 
         homePage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddBasketForThirdProduct();
@@ -52,12 +52,10 @@ public class OrderHistoryPageTests extends TestBase{
         String orderNumber;
         String orderTotal;
         orderNumber= confirmationPage.getOrderNumber();
-        System.out.println(orderNumber);
         orderTotal = confirmationPage.getOrderTotal();
-        System.out.println(orderTotal);
         confirmationPage.clickOnContinueShoppingBtn();
         homePage.clickOnAccountBtn();
-        profilePage.clickOnOrderHistoryBtn();
+        accountSidePanelPage.clickOnOrderHistoryBtn();
         Assert.assertEquals(orderHistoryPage.getOrderNumber(),orderNumber);
         Assert.assertEquals(orderHistoryPage.getOrderTotal(),orderTotal);
 

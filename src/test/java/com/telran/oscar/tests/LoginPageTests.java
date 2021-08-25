@@ -18,12 +18,12 @@ public class LoginPageTests extends TestBase{
         homePage = PageFactory.initElements(driver, HomePage.class);
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         homePage.selectLanguage("en-gb");
-        homePage.goToRegistration();
+        homePage.goToRegistrationAndLogin();
     }
 
     @Test
     public void loginUserPositiveTest(){
-        loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn();
+        loginPage.fillLoginForm("@gmail.com","Zebra_1812").clickOnLogInBtn().takeScreenshot();
         Assert.assertTrue(homePage.isLogoutBtnDisplayed());
     }
 

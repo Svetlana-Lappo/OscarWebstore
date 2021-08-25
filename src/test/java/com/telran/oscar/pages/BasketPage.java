@@ -12,6 +12,10 @@ public class BasketPage extends PageBase{
     @FindBy(xpath = "//a[@class='btn btn-lg btn-primary btn-block']")
     WebElement proceedToCheckoutBtn;
 
+    public void createOder(){
+
+    }
+
 
     public ShippingAddressPage clickOnProceedToCheckoutBtn(){
         click(proceedToCheckoutBtn,2);

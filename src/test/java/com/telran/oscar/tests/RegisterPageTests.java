@@ -21,13 +21,13 @@ public class RegisterPageTests extends TestBase{
         homePage = PageFactory.initElements(driver, HomePage.class);
         registerPage = PageFactory.initElements(driver, RegisterPage.class);
         homePage.selectLanguage("en-gb");
-        homePage.goToRegistration();
+        homePage.goToRegistrationAndLogin();
     }
 
     @Test
     public void registerNewUserPositiveTest_(){
 
-        registerPage.fillRegisterForm("zebragmail.com", "Zebra_1812", "Zebra_1812").clickOnRegisterBtn();
+        registerPage.fillRegisterForm("zebra@gmail.com", "Zebra_1812", "Zebra_1812").clickOnRegisterBtn();
         Assert.assertTrue(homePage.isLogoutBtnDisplayed());
 
     }

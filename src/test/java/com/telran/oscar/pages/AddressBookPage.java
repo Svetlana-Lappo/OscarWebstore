@@ -8,6 +8,7 @@ public class AddressBookPage extends PageBase{
     public AddressBookPage(WebDriver driver) {
         super(driver);
     }
+
     @FindBy(css = ".table.table-striped.table-bordered")
     WebElement bookOfAddresses;
     @FindBy(xpath = "//div[@class='btn-group']//a[@class='btn btn-default']")
@@ -32,6 +33,11 @@ public class AddressBookPage extends PageBase{
         String [] dataInfo = fullShippingAddress.getText().split("\n");
         return dataInfo[1];
     }
+    public boolean isEditAddressContainsText(String Text){
+        return fullShippingAddress.getText().contains(Text);
+
+    }
+
     public AddNewAddressPage clickOnAddNewAddressBtn(){
         click(addNewAddressBtn,2);
         return new AddNewAddressPage(driver);

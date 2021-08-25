@@ -8,6 +8,7 @@ public class AddNewAddressPage extends PageBase{
     public AddNewAddressPage(WebDriver driver) {
         super(driver);
     }
+
     @FindBy(id = "id_title")
     WebElement titleNewAddressForm;
     @FindBy(css = "[name='first_name']")
@@ -32,19 +33,27 @@ public class AddNewAddressPage extends PageBase{
     WebElement errorSameAddress;
 
 
+//    public AddNewAddressPage fillNewAddressForm(String titleValue, String fName, String lName, String adr1,
+//                                                       String city, String zipCode, String countryValue, String phone) {
+//
+//        selectDropDownByValue(titleNewAddressForm, titleValue);
+//        type(firstNameNewAddressForm,2, fName);
+//        type(lastNameNewAddressForm,2, lName);
+//        type(address1NewAddressForm,2, adr1);
+//        type(shippingCityNewAddressForm,2, city);
+//        type(postcodeNewAddressForm,2, zipCode);
+//        selectDropDownByValue(countryNewAddressForm, countryValue);
+//        type(phoneNumberNewAddressForm,2, phone);
+//        return this;
+//    }
     public AddNewAddressPage fillNewAddressForm(String titleValue, String fName, String lName, String adr1,
-                                                       String city, String zipCode, String countryValue, String phone) {
-
-        selectDropDownByValue(titleNewAddressForm, titleValue);
-        type(firstNameNewAddressForm,2, fName);
-        type(lastNameNewAddressForm,2, lName);
-        type(address1NewAddressForm,2, adr1);
-        type(shippingCityNewAddressForm,2, city);
-        type(postcodeNewAddressForm,2, zipCode);
-        selectDropDownByValue(countryNewAddressForm, countryValue);
-        type(phoneNumberNewAddressForm,2, phone);
+                                                String city, String zipCode, String countryValue, String phone){
+        fillAddressForm(titleNewAddressForm,titleValue, firstNameNewAddressForm, fName,lastNameNewAddressForm,
+                lName,address1NewAddressForm,adr1,shippingCityNewAddressForm,city,postcodeNewAddressForm,zipCode,
+                countryNewAddressForm,countryValue,phoneNumberNewAddressForm,phone);
         return this;
     }
+
     public AddressBookPage clickOnSaveBtn(){
         click(saveBtnNewAddressForm,2);
         return new AddressBookPage(driver);

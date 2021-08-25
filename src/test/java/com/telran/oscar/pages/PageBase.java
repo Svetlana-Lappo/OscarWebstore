@@ -71,7 +71,7 @@ public class PageBase {
     }
 
     public Screenshot takeScreenshotWithScrollDown(){
-        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000))
+        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(ShootingStrategies.scaling(1f),1000))
                 .takeScreenshot(driver);
         try{
             ImageIO.write(screenshot.getImage(),"PNG", new File("screenshot/screen" + System.currentTimeMillis() + ".png"));
@@ -79,5 +79,20 @@ public class PageBase {
             e.printStackTrace();
         }
         return screenshot;
+    }
+
+    public void fillAddressForm(WebElement title, String titleValue, WebElement firstName, String fName,
+                                WebElement lastName, String lName, WebElement address1, String adr1, WebElement shippingCity,
+                                String city, WebElement postCode, String zipCode, WebElement country, String countryValue,
+                                WebElement phoneNumber, String phone){
+        selectDropDownByValue(title,titleValue);
+        type(firstName,2,fName);
+        type(lastName,2,lName);
+        type(address1,2,adr1);
+        type(shippingCity,2, city);
+        type(postCode,2,zipCode);
+        selectDropDownByValue(country,countryValue);
+        type(phoneNumber,2,phone);
+
     }
 }

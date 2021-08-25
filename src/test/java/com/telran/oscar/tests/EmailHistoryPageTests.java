@@ -12,7 +12,7 @@ public class EmailHistoryPageTests extends TestBase{
     LoginPage loginPage;
     RegisterPage registerPage;
     EmailHistoryPage emailHistoryPage;
-    ProfilePage profilePage;
+    AccountSidePanelPage accountSidePanelPage;
 
 
     @BeforeMethod
@@ -21,9 +21,9 @@ public class EmailHistoryPageTests extends TestBase{
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         registerPage = PageFactory.initElements(driver, RegisterPage.class);
         emailHistoryPage = PageFactory.initElements(driver, EmailHistoryPage.class);
-        profilePage = PageFactory.initElements(driver, ProfilePage.class);
+        accountSidePanelPage = PageFactory.initElements(driver, AccountSidePanelPage.class);
         homePage.selectLanguage("en-gb");
-        homePage.goToRegistration();
+        homePage.goToRegistrationAndLogin();
         registerPage.fillRegisterForm("zebra" + (System.currentTimeMillis()/1000%3600) + "@gmail.com", "Zebra_1812", "Zebra_1812").clickOnRegisterBtn();
         homePage.clickOnAccountBtn();
 
@@ -31,7 +31,7 @@ public class EmailHistoryPageTests extends TestBase{
 
     @Test
     public void verificationOfEmailCreateDataPositiveTest(){
-        profilePage.clickOnEmailHistoryBtn();
+        accountSidePanelPage.clickOnEmailHistoryBtn();
         Assert.assertEquals(emailHistoryPage.getCreateDateOfEmail(),"22 Aug 2021");
     }
 }

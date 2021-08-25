@@ -29,17 +29,25 @@ public class ShippingAddressPage extends PageBase{
     @FindBy(css = ".error-block")
     WebElement errorForWrongPostcode;
 
-    public ShippingAddressPage fillShippingAddressForm(String titleValue, String fName, String lName, String adr1,
-                                                       String city, String zipCode, String countryValue, String phone) {
+//    public ShippingAddressPage fillShippingAddressForm_(String titleValue, String fName, String lName, String adr1,
+//                                                       String city, String zipCode, String countryValue, String phone) {
+//
+//        selectDropDownByValue(title, titleValue);
+//        type(firstName,2, fName);
+//        type(lastName,2, lName);
+//        type(address1,2, adr1);
+//        type(shippingCity,2, city);
+//        type(postcode,2, zipCode);
+//        selectDropDownByValue(country, countryValue);
+//        type(phoneNumber,2, phone);
+//        return this;
+//    }
 
-        selectDropDownByValue(title, titleValue);
-        type(firstName,2, fName);
-        type(lastName,2, lName);
-        type(address1,2, adr1);
-        type(shippingCity,2, city);
-        type(postcode,2, zipCode);
-        selectDropDownByValue(country, countryValue);
-        type(phoneNumber,2, phone);
+    public ShippingAddressPage fillShippingAddressForm(String titleValue, String fName, String lName, String adr1,
+                                                String city, String zipCode, String countryValue, String phone){
+        fillAddressForm(title,titleValue, firstName, fName,lastName,
+                lName,address1,adr1,shippingCity,city,postcode,zipCode,
+                country,countryValue,phoneNumber,phone);
         return this;
     }
     public String getCountry(){

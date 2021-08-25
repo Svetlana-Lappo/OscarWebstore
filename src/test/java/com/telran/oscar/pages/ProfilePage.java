@@ -9,29 +9,42 @@ public class ProfilePage extends PageBase{
     public ProfilePage(WebDriver driver) {
         super(driver);
     }
+    
+    @FindBy(id = "delete_profile")
+    WebElement deleteProfileBtn;
 
-    @FindBy(xpath = "//a[.='Email History']")
-    WebElement emailHistoryBtn;
+    @FindBy(xpath = "//a[contains(text(),'Change password')]")
+    WebElement changePswdBtn;
 
-    @FindBy(xpath = "//a[.='Order History']")
-    WebElement orderHistoryBtn;
+    @FindBy(xpath = "//a[contains(text(),'Edit profile')]")
+    WebElement editProfileBtn;
 
-    @FindBy(xpath = "//a[.='Address Book']")
-    WebElement addressBookBtn;
+    @FindBy(xpath = "//div[@class='alertinner wicon']")
+    WebElement successfullyChangePswdAlert;
 
-    public EmailHistoryPage clickOnEmailHistoryBtn(){
-        click(emailHistoryBtn,2);
-        return new EmailHistoryPage(driver);
+    @FindBy(css = "tr:nth-child(1) > td")
+    WebElement firstNameCell;
+
+
+    public DeleteProfilePage clickOnDeleteProfileBtn() {
+        click(deleteProfileBtn,2);
+        return new DeleteProfilePage(driver);
     }
 
-    public OrderHistoryPage clickOnOrderHistoryBtn(){
-        click(orderHistoryBtn,2);
-        return new OrderHistoryPage(driver);
+    public Profile_ChangePasswordPage clickOnChangePasswordBtn() {
+        click(changePswdBtn,2);
+        return new Profile_ChangePasswordPage(driver);
     }
-    public AddressBookPage clickOnAddressBookBtn(){
-        click(addressBookBtn,2);
-        return new AddressBookPage(driver);
+    public String getMessageOfSuccessfullyChangePasswordAlert(){
+        return successfullyChangePswdAlert.getText();
     }
 
+    public Profile_EditDataPage clickOnEditProfileBtn(){
+        click(editProfileBtn,2);
+        return new Profile_EditDataPage(driver);
+    }
 
+    public boolean isFirstNameContainsText(String text) {
+        return firstNameCell.getText().contains(text);
+    }
 }

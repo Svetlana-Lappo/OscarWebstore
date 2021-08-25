@@ -12,8 +12,16 @@ public class BooksPage extends PageBase{
     @FindBy(xpath = "//ol[@class='row']/li[3]//button[@type='submit']")
     WebElement addToBasketBtnForThirdProduct;
 
+    @FindBy(xpath = "//ol[@class='row']/li[3]//div[@class='image_container']")
+    WebElement imgForThirdProduct;
+
     public void clickOnAddBasketForThirdProduct(){
         click(addToBasketBtnForThirdProduct,2);
+    }
+
+    public ItemBookPage clickOnThirdProduct(){
+        click(imgForThirdProduct,2);
+        return new ItemBookPage(driver);
     }
 
 
