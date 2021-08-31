@@ -1,10 +1,14 @@
-package com.telran.oscar.pages;
+package com.telran.oscar.pages.user;
 
+import com.telran.oscar.pages.PageBase;
+import com.telran.oscar.pages.user.DeleteProfilePage;
+import com.telran.oscar.pages.user.Profile_ChangePasswordPage;
+import com.telran.oscar.pages.user.Profile_EditDataPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProfilePage extends PageBase{
+public class ProfilePage extends PageBase {
 
     public ProfilePage(WebDriver driver) {
         super(driver);
@@ -24,6 +28,10 @@ public class ProfilePage extends PageBase{
 
     @FindBy(css = "tr:nth-child(1) > td")
     WebElement firstNameCell;
+
+    @FindBy(css = "tr:nth-child(2) > td")
+    WebElement emailCell;
+
 
 
     public DeleteProfilePage clickOnDeleteProfileBtn() {
@@ -46,5 +54,9 @@ public class ProfilePage extends PageBase{
 
     public boolean isFirstNameContainsText(String text) {
         return firstNameCell.getText().contains(text);
+    }
+
+    public boolean isEmailFieldContainsNewEmail(String email) {
+        return emailCell.getText().contains(email);
     }
 }

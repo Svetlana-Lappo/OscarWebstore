@@ -1,10 +1,11 @@
-package com.telran.oscar.pages;
+package com.telran.oscar.pages.product;
 
+import com.telran.oscar.pages.PageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ItemBookPage extends PageBase{
+public class ItemBookPage extends PageBase {
     public ItemBookPage(WebDriver driver) {
         super(driver);
     }

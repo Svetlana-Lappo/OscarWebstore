@@ -95,4 +95,24 @@ public class PageBase {
         type(phoneNumber,2,phone);
 
     }
+
+    public boolean isElementClickable(WebElement element, int timeout){
+
+        WebElement elementTemp = null;
+        try{
+         elementTemp = new WebDriverWait(driver,timeout).until(ExpectedConditions.elementToBeClickable(element));
+
+         if(elementTemp!=null){
+             return true;
+         }
+        }catch (WebDriverException wde){
+            System.out.println(wde);
+        }
+
+        return false;
+    }
+
+    public boolean isPageHeaderDisplayed(){
+        return driver.findElement(By.cssSelector(".page-header.action")).isDisplayed();
+    }
 }

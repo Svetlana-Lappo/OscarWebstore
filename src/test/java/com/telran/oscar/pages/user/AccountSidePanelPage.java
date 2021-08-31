@@ -1,10 +1,11 @@
-package com.telran.oscar.pages;
+package com.telran.oscar.pages.user;
 
+import com.telran.oscar.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AccountSidePanelPage extends PageBase{
+public class AccountSidePanelPage extends PageBase {
     public AccountSidePanelPage(WebDriver driver) {
         super(driver);
     }
@@ -20,6 +21,13 @@ public class AccountSidePanelPage extends PageBase{
 
     @FindBy(xpath = "//a[.='Wish Lists']")
     WebElement wishListsBtn;
+
+    @FindBy(xpath = "//a[.='Profile']")
+    WebElement profileBtn;
+
+    @FindBy(css = ".nav.nav-pills.nav-stacked")
+    WebElement sidePanel;
+
 
     public EmailHistoryPage clickOnEmailHistoryBtn(){
         click(emailHistoryBtn,2);
@@ -38,5 +46,13 @@ public class AccountSidePanelPage extends PageBase{
     public WishListsPage clickOnWishListsBtn(){
         click(wishListsBtn,2);
         return new WishListsPage(driver);
+    }
+
+    public ProfilePage clickOnProfileBtn(){
+        click(profileBtn,2);
+        return new ProfilePage(driver);
+    }
+    public boolean isAccountSidePanelDisplayed(){
+        return sidePanel.isDisplayed();
     }
 }

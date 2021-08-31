@@ -16,6 +16,8 @@ dependencies {
     implementation 'org.checkerframework.annotatedlib:commons-io:2.8.0'
     implementation 'com.jayway.restassured:rest-assured:2.9.0'
     implementation 'ru.yandex.qatools.ashot:ashot:1.5.4'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'io.rest-assured:rest-assured:4.4.0'
 }
 
 test {

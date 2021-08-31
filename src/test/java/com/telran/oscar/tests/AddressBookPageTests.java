@@ -1,6 +1,7 @@
 package com.telran.oscar.tests;
 
-import com.telran.oscar.pages.*;
+import com.telran.oscar.pages.home.HeaderPage;
+import com.telran.oscar.pages.user.*;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class AddressBookPageTests extends TestBase{
 
-    HomePage homePage;
+    HeaderPage headerPage;
     LoginPage loginPage;
     AccountSidePanelPage accountSidePanelPage;
     AddressBookPage addressBookPage;
@@ -18,16 +19,16 @@ public class AddressBookPageTests extends TestBase{
 
     @BeforeMethod
     public void ensurePreconditions(){
-        homePage = PageFactory.initElements(driver, HomePage.class);
+        headerPage = PageFactory.initElements(driver, HeaderPage.class);
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         accountSidePanelPage = PageFactory.initElements(driver, AccountSidePanelPage.class);
         addressBookPage = PageFactory.initElements(driver, AddressBookPage.class);
         editAddressPage = PageFactory.initElements(driver, EditAddressPage.class);
         addNewAddressPage = PageFactory.initElements(driver, AddNewAddressPage.class);
-        homePage.selectLanguage("en-gb");
-        homePage.goToRegistrationAndLogin();
+        headerPage.selectLanguage("en-gb");
+        headerPage.goToRegistrationAndLogin();
         loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn();
-        homePage.clickOnAccountBtn();
+        headerPage.clickOnAccountBtn();
     }
 
     @Test

@@ -1,6 +1,10 @@
 package com.telran.oscar.tests;
 
-import com.telran.oscar.pages.*;
+import com.telran.oscar.pages.home.HeaderPage;
+import com.telran.oscar.pages.user.AccountSidePanelPage;
+import com.telran.oscar.pages.user.EmailHistoryPage;
+import com.telran.oscar.pages.user.LoginPage;
+import com.telran.oscar.pages.user.RegisterPage;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class EmailHistoryPageTests extends TestBase{
 
-    HomePage homePage;
+    HeaderPage headerPage;
     LoginPage loginPage;
     RegisterPage registerPage;
     EmailHistoryPage emailHistoryPage;
@@ -17,15 +21,15 @@ public class EmailHistoryPageTests extends TestBase{
 
     @BeforeMethod
     public void ensurePreconditions(){
-        homePage = PageFactory.initElements(driver, HomePage.class);
+        headerPage = PageFactory.initElements(driver, HeaderPage.class);
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         registerPage = PageFactory.initElements(driver, RegisterPage.class);
         emailHistoryPage = PageFactory.initElements(driver, EmailHistoryPage.class);
         accountSidePanelPage = PageFactory.initElements(driver, AccountSidePanelPage.class);
-        homePage.selectLanguage("en-gb");
-        homePage.goToRegistrationAndLogin();
+        headerPage.selectLanguage("en-gb");
+        headerPage.goToRegistrationAndLogin();
         registerPage.fillRegisterForm("zebra" + (System.currentTimeMillis()/1000%3600) + "@gmail.com", "Zebra_1812", "Zebra_1812").clickOnRegisterBtn();
-        homePage.clickOnAccountBtn();
+        headerPage.clickOnAccountBtn();
 
     }
 

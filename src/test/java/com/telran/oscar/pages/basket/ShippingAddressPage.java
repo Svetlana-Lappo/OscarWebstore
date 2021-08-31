@@ -1,10 +1,11 @@
-package com.telran.oscar.pages;
+package com.telran.oscar.pages.basket;
 
+import com.telran.oscar.pages.PageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ShippingAddressPage extends PageBase{
+public class ShippingAddressPage extends PageBase {
     public ShippingAddressPage(WebDriver driver) {
         super(driver);
     }
@@ -29,19 +30,7 @@ public class ShippingAddressPage extends PageBase{
     @FindBy(css = ".error-block")
     WebElement errorForWrongPostcode;
 
-//    public ShippingAddressPage fillShippingAddressForm_(String titleValue, String fName, String lName, String adr1,
-//                                                       String city, String zipCode, String countryValue, String phone) {
-//
-//        selectDropDownByValue(title, titleValue);
-//        type(firstName,2, fName);
-//        type(lastName,2, lName);
-//        type(address1,2, adr1);
-//        type(shippingCity,2, city);
-//        type(postcode,2, zipCode);
-//        selectDropDownByValue(country, countryValue);
-//        type(phoneNumber,2, phone);
-//        return this;
-//    }
+
 
     public ShippingAddressPage fillShippingAddressForm(String titleValue, String fName, String lName, String adr1,
                                                 String city, String zipCode, String countryValue, String phone){

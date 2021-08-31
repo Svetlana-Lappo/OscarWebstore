@@ -1,4 +1,0 @@
-13:45:20.346 [main] INFO  com.telran.oscar.tests.TestBase - Start test: addBookToWishListPositiveTest
-13:45:31.703 [main] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
-13:45:31.704 [main] INFO  com.telran.oscar.tests.TestBase - Stop test: null
-13:45:31.704 [main] INFO  com.telran.oscar.tests.TestBase - *************************************

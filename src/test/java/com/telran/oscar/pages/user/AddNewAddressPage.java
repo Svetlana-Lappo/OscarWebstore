@@ -1,10 +1,11 @@
-package com.telran.oscar.pages;
+package com.telran.oscar.pages.user;
 
+import com.telran.oscar.pages.PageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AddNewAddressPage extends PageBase{
+public class AddNewAddressPage extends PageBase {
     public AddNewAddressPage(WebDriver driver) {
         super(driver);
     }
@@ -33,19 +34,6 @@ public class AddNewAddressPage extends PageBase{
     WebElement errorSameAddress;
 
 
-//    public AddNewAddressPage fillNewAddressForm(String titleValue, String fName, String lName, String adr1,
-//                                                       String city, String zipCode, String countryValue, String phone) {
-//
-//        selectDropDownByValue(titleNewAddressForm, titleValue);
-//        type(firstNameNewAddressForm,2, fName);
-//        type(lastNameNewAddressForm,2, lName);
-//        type(address1NewAddressForm,2, adr1);
-//        type(shippingCityNewAddressForm,2, city);
-//        type(postcodeNewAddressForm,2, zipCode);
-//        selectDropDownByValue(countryNewAddressForm, countryValue);
-//        type(phoneNumberNewAddressForm,2, phone);
-//        return this;
-//    }
     public AddNewAddressPage fillNewAddressForm(String titleValue, String fName, String lName, String adr1,
                                                 String city, String zipCode, String countryValue, String phone){
         fillAddressForm(titleNewAddressForm,titleValue, firstNameNewAddressForm, fName,lastNameNewAddressForm,

@@ -1,7 +1,7 @@
 package com.telran.oscar.tests;
 
-import com.telran.oscar.pages.HomePage;
-import com.telran.oscar.pages.LoginPage;
+import com.telran.oscar.pages.user.LoginPage;
+import com.telran.oscar.pages.home.HeaderPage;
 import com.telran.oscar.utils.DataProviders;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -10,21 +10,21 @@ import org.testng.annotations.Test;
 
 public class LoginPageTests extends TestBase{
 
-    HomePage homePage;
+    HeaderPage headerPage;
     LoginPage loginPage;
 
     @BeforeMethod
     public void ensurePrecondition(){
-        homePage = PageFactory.initElements(driver, HomePage.class);
+        headerPage = PageFactory.initElements(driver, HeaderPage.class);
         loginPage = PageFactory.initElements(driver, LoginPage.class);
-        homePage.selectLanguage("en-gb");
-        homePage.goToRegistrationAndLogin();
+        headerPage.selectLanguage("en-gb");
+        headerPage.goToRegistrationAndLogin();
     }
 
     @Test
     public void loginUserPositiveTest(){
-        loginPage.fillLoginForm("@gmail.com","Zebra_1812").clickOnLogInBtn().takeScreenshot();
-        Assert.assertTrue(homePage.isLogoutBtnDisplayed());
+        loginPage.fillLoginForm("Zebra@gmail.com","Zebra_1812").clickOnLogInBtn().takeScreenshot();
+        Assert.assertTrue(headerPage.isLogoutBtnDisplayed());
     }
 
     @Test(dataProviderClass = DataProviders.class, dataProvider = "loginInvalidEmails")
@@ -38,5 +38,7 @@ public class LoginPageTests extends TestBase{
         loginPage.fillLoginForm("zebra@gmail.com",password).clickOnLogInBtn();
         Assert.assertTrue(loginPage.isLoginFormDisplayed());
     }
+
+
 
 }

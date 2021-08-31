@@ -1,4 +1,0 @@
-13:44:47.247 [main] INFO  com.telran.oscar.tests.TestBase - Start test: registerNewUserPositiveTest_
-13:45:02.662 [main] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
-13:45:02.663 [main] INFO  com.telran.oscar.tests.TestBase - Stop test: null
-13:45:02.663 [main] INFO  com.telran.oscar.tests.TestBase - *************************************

@@ -1,10 +1,11 @@
-package com.telran.oscar.pages;
+package com.telran.oscar.pages.basket;
 
+import com.telran.oscar.pages.PageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PreviewOrderPage extends PageBase{
+public class PreviewOrderPage extends PageBase {
     public PreviewOrderPage(WebDriver driver) {
         super(driver);
     }

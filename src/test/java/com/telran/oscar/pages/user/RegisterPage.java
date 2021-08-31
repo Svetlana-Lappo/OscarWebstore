@@ -1,10 +1,12 @@
-package com.telran.oscar.pages;
+package com.telran.oscar.pages.user;
 
+import com.telran.oscar.pages.PageBase;
+import com.telran.oscar.pages.home.HeaderPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RegisterPage extends PageBase{
+public class RegisterPage extends PageBase {
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -37,9 +39,9 @@ public class RegisterPage extends PageBase{
         return this;
     }
 
-    public HomePage clickOnRegisterBtn() {
+    public HeaderPage clickOnRegisterBtn() {
         click(registerBtn, 2);
-        return new HomePage(driver);
+        return new HeaderPage(driver);
     }
 
     public boolean isRegisterFormDisplayed() {

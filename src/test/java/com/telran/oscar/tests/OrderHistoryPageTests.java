@@ -1,6 +1,12 @@
 package com.telran.oscar.tests;
 
-import com.telran.oscar.pages.*;
+import com.telran.oscar.pages.basket.*;
+import com.telran.oscar.pages.home.HeaderPage;
+import com.telran.oscar.pages.home.SidePanelPage;
+import com.telran.oscar.pages.product.BooksPage;
+import com.telran.oscar.pages.user.AccountSidePanelPage;
+import com.telran.oscar.pages.user.LoginPage;
+import com.telran.oscar.pages.user.OrderHistoryPage;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +14,8 @@ import org.testng.annotations.Test;
 
 public class OrderHistoryPageTests extends TestBase{
 
-    HomePage homePage;
+    HeaderPage headerPage;
+    SidePanelPage sidePanelPage;
     LoginPage loginPage;
     BooksPage booksPage;
     BasketPage basketPage;
@@ -22,7 +29,8 @@ public class OrderHistoryPageTests extends TestBase{
 
     @BeforeMethod
     public void ensurePreconditions(){
-        homePage = PageFactory.initElements(driver, HomePage.class);
+        sidePanelPage = PageFactory.initElements(driver, SidePanelPage.class);
+        headerPage = PageFactory.initElements(driver, HeaderPage.class);
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         booksPage = PageFactory.initElements(driver, BooksPage.class);
         basketPage = PageFactory.initElements(driver, BasketPage.class);
@@ -32,8 +40,8 @@ public class OrderHistoryPageTests extends TestBase{
         shippingAddressPage = PageFactory.initElements(driver, ShippingAddressPage.class);
         accountSidePanelPage = PageFactory.initElements(driver,AccountSidePanelPage.class);
         orderHistoryPage = PageFactory.initElements(driver,OrderHistoryPage.class);
-        homePage.selectLanguage("en-gb");
-        homePage.goToRegistrationAndLogin();
+        headerPage.selectLanguage("en-gb");
+        headerPage.goToRegistrationAndLogin();
         loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn();
 
     }
@@ -41,9 +49,9 @@ public class OrderHistoryPageTests extends TestBase{
     @Test
     public void orderHistoryPositiveTest(){
 
-        homePage.clickOnBooksTabOnSidePanel();
+        sidePanelPage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddBasketForThirdProduct();
-        homePage.clickOnViewBasketBtn();
+        headerPage.clickOnViewBasketBtn();
         basketPage.clickOnProceedToCheckoutBtn();
         shippingAddressPage.fillShippingAddressForm("Ms", "Sara","Corner",
                 "Friedrichstr. 18", "Nuernberg", "90402", "DE", "+4917542365154").clickOnContinueBtn();
@@ -54,7 +62,7 @@ public class OrderHistoryPageTests extends TestBase{
         orderNumber= confirmationPage.getOrderNumber();
         orderTotal = confirmationPage.getOrderTotal();
         confirmationPage.clickOnContinueShoppingBtn();
-        homePage.clickOnAccountBtn();
+        headerPage.clickOnAccountBtn();
         accountSidePanelPage.clickOnOrderHistoryBtn();
         Assert.assertEquals(orderHistoryPage.getOrderNumber(),orderNumber);
         Assert.assertEquals(orderHistoryPage.getOrderTotal(),orderTotal);
@@ -63,13 +71,13 @@ public class OrderHistoryPageTests extends TestBase{
 
     @Test
     public void createOderWithWrongPostcodeNegativeTest(){
-        homePage.clickOnBooksTabOnSidePanel();
+        sidePanelPage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddBasketForThirdProduct();
-        homePage.clickOnViewBasketBtn();
+        headerPage.clickOnViewBasketBtn();
         basketPage.clickOnProceedToCheckoutBtn();
         shippingAddressPage.fillShippingAddressForm("Ms", "Sara","Corner",
-                "Friedrichstr. 18", "Nuernberg", "10000", "AL", "+4917542365154").clickOnContinueBtn();
+                "Friedrichstr. 18", "Nuernberg", "90402", "AF", "+4917542365154").clickOnContinueBtn();
         paymentPage.clickOnContinueBtnPayment();
-        Assert.assertEquals(shippingAddressPage.getErrorMessageForWrongPostCode(),"The postcode '10000' is not valid for Albania");
+        Assert.assertEquals(shippingAddressPage.getErrorMessageForWrongPostCode(),"The postcode '90402' is not valid for Afganistan");
     }
 }
