@@ -67,6 +67,7 @@ public class HeaderPage extends PageBase {
         return logoutBtn.isDisplayed();
     }
 
+
     public boolean isLogoutBtnClickable(){
       return isElementClickable(logoutBtn,1);
     }
@@ -94,10 +95,10 @@ public class HeaderPage extends PageBase {
         return new BasketPage(driver);
     }
 
-    public boolean isSiteTitleDisplayed(){
+    public boolean isLogoLinkDisplayed(){
         return siteTitle.isDisplayed();
     }
-    public boolean isSiteTitleClickable(){
+    public boolean isLogoLinkClickable(){
         return isElementClickable(siteTitle,1);
     }
 
@@ -128,7 +129,7 @@ public class HeaderPage extends PageBase {
         return successfullyDeleteProfileAlert.getText();
     }
 
-    public void clickOnSiteTitleLink(){
+    public void clickOnLogoLink(){
         click(siteTitle,2);
     }
 

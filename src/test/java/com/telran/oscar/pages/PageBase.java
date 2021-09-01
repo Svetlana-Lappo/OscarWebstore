@@ -100,11 +100,9 @@ public class PageBase {
 
         WebElement elementTemp = null;
         try{
-         elementTemp = new WebDriverWait(driver,timeout).until(ExpectedConditions.elementToBeClickable(element));
+          new WebDriverWait(driver,timeout).until(ExpectedConditions.elementToBeClickable(element));
+          return true;
 
-         if(elementTemp!=null){
-             return true;
-         }
         }catch (WebDriverException wde){
             System.out.println(wde);
         }

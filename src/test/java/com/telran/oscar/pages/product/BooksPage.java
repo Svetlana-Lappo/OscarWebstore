@@ -15,6 +15,8 @@ public class BooksPage extends PageBase {
 
     @FindBy(xpath = "//ol[@class='row']/li[3]//div[@class='image_container']")
     WebElement imgForThirdProduct;
+    @FindBy(xpath = "//ol[@class='row']/li[3]//h3")
+    WebElement titleOfThirdProduct;
 
 
 
@@ -29,6 +31,10 @@ public class BooksPage extends PageBase {
     public ItemBookPage clickOnThirdProduct(){
         click(imgForThirdProduct,2);
         return new ItemBookPage(driver);
+    }
+
+    public String getNameOfThirdProduct(){
+        return titleOfThirdProduct.getText();
     }
 
 

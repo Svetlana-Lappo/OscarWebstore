@@ -48,7 +48,7 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @AfterMethod(enabled = true)
+    @AfterMethod(enabled = false)
     public void tearDown(ITestResult result){
 
         if(result.isSuccess()){

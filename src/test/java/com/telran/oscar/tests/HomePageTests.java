@@ -59,7 +59,7 @@ public class HomePageTests extends TestBase{
         Assert.assertTrue(headerPage.isLoginOrRegisterBtnDisplayed());
         Assert.assertTrue(headerPage.isBasketTotalDisplayed());
         Assert.assertTrue(headerPage.isViewBasketBtnDisplayed());
-        Assert.assertTrue(headerPage.isSiteTitleDisplayed());
+        Assert.assertTrue(headerPage.isLogoLinkDisplayed());
         Assert.assertTrue(sidePanelPage.isNavigationPanelDisplayed());
         Assert.assertTrue(sidePanelPage.isSearchBtnDisplayed());
         Assert.assertTrue(sidePanelPage.isSearchFieldDisplayed());
@@ -78,9 +78,10 @@ public class HomePageTests extends TestBase{
         Assert.assertTrue(headerPage.isLoginOrRegisterBtnClickable());
         Assert.assertTrue(headerPage.isGoBtnClickable());
         Assert.assertTrue(headerPage.isSelectLanguageBtnClickable());
-        Assert.assertTrue(headerPage.isSiteTitleClickable());
+        Assert.assertTrue(headerPage.isLogoLinkClickable());
         Assert.assertTrue(headerPage.isViewBasketBtnClickable());
         Assert.assertTrue(sidePanelPage.isSearchBtnClickable());
+
     }
 
     @Test
@@ -103,7 +104,7 @@ public class HomePageTests extends TestBase{
     }
     @Test
     public void siteTitleRedirectToHomePage(){
-        headerPage.clickOnSiteTitleLink();
+        headerPage.clickOnLogoLink();
         Assert.assertTrue(sidePanelPage.isNavigationPanelDisplayed());
     }
     @Test
