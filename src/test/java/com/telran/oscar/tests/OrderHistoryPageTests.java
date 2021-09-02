@@ -50,7 +50,7 @@ public class OrderHistoryPageTests extends TestBase{
     public void orderHistoryPositiveTest(){
 
         sidePanelPage.clickOnBooksTabOnSidePanel();
-        booksPage.clickOnAddBasketForThirdProduct();
+        booksPage.clickOnAddToBasketOnCategoryPage(3);
         headerPage.clickOnViewBasketBtn();
         basketPage.clickOnProceedToCheckoutBtn();
         shippingAddressPage.fillShippingAddressForm("Ms", "Sara","Corner",
@@ -72,7 +72,7 @@ public class OrderHistoryPageTests extends TestBase{
     @Test
     public void createOderWithWrongPostcodeNegativeTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
-        booksPage.clickOnAddBasketForThirdProduct();
+        booksPage.clickOnAddToBasketOnCategoryPage(3);
         headerPage.clickOnViewBasketBtn();
         basketPage.clickOnProceedToCheckoutBtn();
         shippingAddressPage.fillShippingAddressForm("Ms", "Sara","Corner",

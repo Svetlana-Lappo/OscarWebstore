@@ -113,4 +113,22 @@ public class PageBase {
     public boolean isPageHeaderDisplayed(){
         return driver.findElement(By.cssSelector(".page-header.action")).isDisplayed();
     }
+    public String getCurrentPage(){
+        String[] pageInfo = driver.findElement(By.xpath("//li[@class='current']")).getText().split(" ");
+        return pageInfo[1];
+    }
+
+    public void clickOnAddToBasketOnCategoryPage(int productNumber){
+        WebElement element = driver.findElement(By.xpath("//ol[@class='row']/li["+productNumber+"]//button[@type='submit']"));
+        click(element,2);
+    }
+
+    public String getNameChosenProductOnCategoryPage(int productNumber){
+        WebElement element = driver.findElement(By.xpath("//ol[@class='row']/li["+productNumber+"]//h3"));
+        return element.getText();
+    }
+    public void clickOnChosenProduct(int productNumber){
+        WebElement element = driver.findElement(By.xpath("//ol[@class='row']/li["+productNumber+"]//div[@class='image_container']"));
+        click(element,2);
+    }
 }

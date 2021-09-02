@@ -19,6 +19,8 @@ public class ItemBookPage extends PageBase {
     WebElement productName;
     @FindBy(xpath = "//ul[@class='breadcrumb']/li[1]")
     WebElement homeTab;
+    @FindBy(xpath = "//button[@value='Add to basket']")
+    WebElement addToBasketBtn;
 
 
     public ItemBookPage clickOnAddWishListBtn(){
@@ -34,5 +36,10 @@ public class ItemBookPage extends PageBase {
         click(homeTab,2);
         return new ContentPage(driver);
 
+    }
+
+    public ItemBookPage clickOnAddToBasketBtn() {
+        click(addToBasketBtn,2);
+        return this;
     }
 }

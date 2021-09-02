@@ -10,9 +10,29 @@ public class ProductPage extends PageBase {
         super(driver);
     }
 
+    @FindBy(xpath = "//li[@class='next']/a")
+    WebElement nextBtn;
+    @FindBy(xpath = "//li[@class='previous']/a")
+    WebElement previousBtn;
+
+
 
 
     public boolean isItProductPage() {
         return isPageHeaderDisplayed();
     }
+
+    public ProductPage clickOnNextBtn(){
+        click(nextBtn,2);
+        return this;
+    }
+
+
+    public ProductPage clickOnPreviousBtn() {
+        click(previousBtn,2);
+        return this;
+    }
+
+
+
 }

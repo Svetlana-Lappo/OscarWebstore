@@ -46,7 +46,7 @@ public class WishListsPageTests extends TestBase{
     @Test
     public void addBookToWishListPositiveTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
-        booksPage.clickOnThirdProduct();
+        booksPage.clickOnChosenProduct(3);
         String productName = itemBookPage.getProductName();
         itemBookPage.clickOnAddWishListBtn();
         headerPage.clickOnAccountBtn();

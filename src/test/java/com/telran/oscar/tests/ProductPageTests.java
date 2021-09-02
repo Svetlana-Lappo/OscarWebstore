@@ -1,5 +1,6 @@
 package com.telran.oscar.tests;
 
+import com.telran.oscar.pages.basket.BasketPage;
 import com.telran.oscar.pages.home.ContentPage;
 import com.telran.oscar.pages.home.HeaderPage;
 import com.telran.oscar.pages.home.SidePanelPage;
@@ -23,6 +24,7 @@ public class ProductPageTests extends TestBase {
     HackingPage hackingPage;
     ItemBookPage itemBookPage;
     ContentPage contentPage;
+    BasketPage basketPage;
 
     @BeforeMethod
     public void ensurePrecondition(){
@@ -39,7 +41,9 @@ public class ProductPageTests extends TestBase {
         productPage = PageFactory.initElements(driver, ProductPage.class);
         itemBookPage = PageFactory.initElements(driver, ItemBookPage.class);
         contentPage = PageFactory.initElements(driver, ContentPage.class);
+        basketPage = PageFactory.initElements(driver, BasketPage.class);
         headerPage.selectLanguage("en-gb");
+
     }
     @Test
     public void clothingTabOnNaviRedirectToClothingPageTest(){
@@ -86,23 +90,60 @@ public class ProductPageTests extends TestBase {
     @Test
     public void verifyCorrectNameOfBookTest(){
       sidePanelPage.clickOnBooksTabOnSidePanel();
-      String productName =booksPage.getNameOfThirdProduct();
-      booksPage.clickOnThirdProduct();
+      String productName =booksPage.getNameChosenProductOnCategoryPage(3);
+      booksPage.clickOnChosenProduct(3);
       Assert.assertEquals(itemBookPage.getProductName(),productName);
     }
     @Test
     public void homeTabOnItemBookPageRedirectToHomePageTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
-        booksPage.clickOnThirdProduct();
+        booksPage.clickOnChosenProduct(1);
         itemBookPage.clickOnHomeTab();
         Assert.assertTrue(contentPage.isMainContainDisplayed());
     }
     @Test
-    public void LogoLinkRedirectFromItemBookPageToHomePageTest(){
+    public void logoLinkRedirectFromItemBookPageToHomePageTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
-        booksPage.clickOnThirdProduct();
+        booksPage.clickOnChosenProduct(5);
         headerPage.clickOnLogoLink();
         Assert.assertTrue(contentPage.isMainContainDisplayed());
     }
+
+    @Test
+    public void nextPageBtnFunctionalTest(){
+        sidePanelPage.clickOnAllProductsTabOnSidePanel();
+        productPage.clickOnNextBtn();
+        Assert.assertEquals(productPage.getCurrentPage(),"2");
+
+    }
+
+    @Test
+    public void previousPageBtnFunctionalTest(){
+        sidePanelPage.clickOnAllProductsTabOnSidePanel();
+        productPage.clickOnNextBtn();
+        productPage.clickOnPreviousBtn();
+        Assert.assertEquals(productPage.getCurrentPage(),"1");
+
+    }
+    @Test
+    public void AddToBasketBtnOnProductPageFunctionalTest(){
+        sidePanelPage.clickOnAllProductsTabOnSidePanel();
+        productPage.clickOnAddToBasketOnCategoryPage(2);
+        String productName = productPage.getNameChosenProductOnCategoryPage(2);
+        headerPage.clickOnViewBasketBtn();
+        Assert.assertTrue(basketPage.isAddedProductInBasket("Hacking Exposed Wireless"));
+    }
+
+    @Test
+    public void AddToBasketBtnOnItemBookPageFunctionalTest(){
+        sidePanelPage.clickOnBooksTabOnSidePanel();
+        String productName = booksPage.getNameChosenProductOnCategoryPage(3);
+        booksPage.clickOnChosenProduct(3);
+        itemBookPage.clickOnAddToBasketBtn();
+        headerPage.clickOnViewBasketBtn();
+        Assert.assertTrue(basketPage.isAddedProductInBasket("Coders at Work"));
+
+    }
+
 
 }
