@@ -1,6 +1,7 @@
 package com.telran.oscar.pages.basket;
 
 import com.telran.oscar.pages.PageBase;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,16 +15,23 @@ public class BasketPage extends PageBase {
 
     @FindBy(xpath = "//a[@class='btn btn-lg btn-primary btn-block']")
     WebElement proceedToCheckoutBtn;
-    @FindBy(xpath = "//div[@class='col-sm-4']")
+    @FindBy(xpath = "//div[@class='col-sm-4']//a")
     List<WebElement> listProductsInBasket;
-    @FindBy(xpath = "//div[@class='col-sm-4']//a[contains(text(),'Coders at Work')]")
-    WebElement titleOfThirdProduct;
+    @FindBy(xpath = "//div[@class='col-sm-2']/p[@class='price_color align-right']")
+    WebElement totalPrice;
+    @FindBy(xpath = "//div[@class='col-sm-1']/p[@class='price_color align-right']")
+    WebElement price;
+    @FindBy(id = "id_form-0-quantity")
+    WebElement productQuantity;
+    @FindBy(xpath = "//span[@class='input-group-btn']/button[@type='submit']")
+    WebElement updateBtn;
+    @FindBy (xpath = "//span[@class='error-block']")
+    WebElement errMessageForEmptyQuantity;
+    @FindBy(css = "tr:nth-child(2) th:nth-child(2)")
+    WebElement basketTotal;
 
 
 
-    public void createOder(){
-
-    }
 
 
     public ShippingAddressPage clickOnProceedToCheckoutBtn(){
@@ -37,13 +45,54 @@ public class BasketPage extends PageBase {
     }
 
     public boolean isAddedProductInBasket(String title){
+        if(listProductsInBasket!=null){
         for (WebElement product:listProductsInBasket) {
 
          if(product.getText().contains(title)) {
              return true;
         }
         }
-        return false;
+        }
+            return false;
+
+    }
+
+    public Double getTotalPriceForProductItem(){
+        Double totalPriceForItem = Double.parseDouble(removeFirstChar(totalPrice.getText()));
+       return totalPriceForItem;
+
+    }
+    public Double getPriceForProductItem(){
+        Double priceForItem = Double.parseDouble(removeFirstChar(price.getText()));
+        return priceForItem;
+
+
+    }
+    public BasketPage setProductQuantity(String quantity){
+        type(productQuantity,1,quantity);
+        return this;
+    }
+
+    public BasketPage setProductQuantity1(String productNumber, String quantity){
+        WebElement element = driver.findElement(By.id("id_form-"+productNumber+"-quantity"));
+        type(element,2,quantity);
+        return this;
+    }
+
+
+    public BasketPage clickOnUpdateBtn() {
+        click(updateBtn,1);
+        return this;
+
+    }
+
+    public String getErrorMessage() {
+        return errMessageForEmptyQuantity.getText();
+    }
+
+    public Double getBasketTotal(){
+        Double basketTotalPrice = Double.parseDouble(removeFirstChar(basketTotal.getText()));
+        return basketTotalPrice;
     }
 
 

@@ -131,4 +131,13 @@ public class PageBase {
         WebElement element = driver.findElement(By.xpath("//ol[@class='row']/li["+productNumber+"]//div[@class='image_container']"));
         click(element,2);
     }
+    public String getPriceChosenProductOnCategoryPage(int productNumber){
+        WebElement element = driver.findElement(By.xpath("//ol[@class='row']/li["+productNumber+"]//p[@class='price_color']"));
+        return removeFirstChar(element.getText());
+
+    }
+
+    public String removeFirstChar(String s){
+        return s.substring(1);
+    }
 }
