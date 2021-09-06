@@ -12,7 +12,38 @@ public class WhoAreYouPage extends PageBase {
     @FindBy(css = ".form-stacked.well")
     WebElement whoAreYouForm;
 
+    @FindBy(css="[name=username]")
+    WebElement emailField;
+
+    @FindBy(css="[name=password]")
+    WebElement passwordField;
+
+    @FindBy(id = "id_options_1")
+    WebElement chooseRegistrationOption;
+
+    @FindBy(css = "[type=submit]")
+    WebElement continueBtn;
+
     public boolean isWhoAreYouFormDisplayed(){
         return whoAreYouForm.isDisplayed();
+    }
+
+    public WhoAreYouPage typeEmailAddress(String email) {
+        type(emailField,1,email);
+        return this;
+    }
+
+    public WhoAreYouPage selectRegistrationOption() {
+        click(chooseRegistrationOption,1);
+        return this;
+    }
+
+    public void clickOnContinueBtn() {
+        click(continueBtn,1);
+    }
+
+    public WhoAreYouPage typePassword(String password) {
+        type(passwordField,1,password);
+        return this;
     }
 }

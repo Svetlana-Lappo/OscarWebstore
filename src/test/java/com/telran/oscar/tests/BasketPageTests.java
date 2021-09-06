@@ -1,11 +1,14 @@
 package com.telran.oscar.tests;
 
-import com.telran.oscar.pages.basket.BasketPage;
-import com.telran.oscar.pages.basket.WhoAreYouPage;
+import com.telran.oscar.pages.basket.*;
 import com.telran.oscar.pages.home.ContentPage;
 import com.telran.oscar.pages.home.HeaderPage;
 import com.telran.oscar.pages.home.SidePanelPage;
 import com.telran.oscar.pages.product.*;
+import com.telran.oscar.pages.user.AccountSidePanelPage;
+import com.telran.oscar.pages.user.DeleteProfilePage;
+import com.telran.oscar.pages.user.OrderHistoryPage;
+import com.telran.oscar.pages.user.ProfilePage;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -18,6 +21,15 @@ public class BasketPageTests extends TestBase{
     BooksPage booksPage;
     BasketPage basketPage;
     WhoAreYouPage whoAreYouPage;
+    RegisterFormPage registerFormPage;
+    ShippingAddressPage shippingAddressPage;
+    PaymentPage paymentPage;
+    PreviewOrderPage previewOrderPage;
+    ConfirmationPage confirmationPage;
+    AccountSidePanelPage accountSidePanelPage;
+    OrderHistoryPage orderHistoryPage;
+    ProfilePage profilePage;
+    DeleteProfilePage deleteProfilePage;
 
 
     @BeforeMethod
@@ -27,7 +39,17 @@ public class BasketPageTests extends TestBase{
     booksPage = PageFactory.initElements(driver, BooksPage.class);
     basketPage = PageFactory.initElements(driver, BasketPage.class);
     whoAreYouPage = PageFactory.initElements(driver, WhoAreYouPage.class);
+    registerFormPage = PageFactory.initElements(driver, RegisterFormPage.class);
+    shippingAddressPage= PageFactory.initElements(driver, ShippingAddressPage.class);
+    paymentPage = PageFactory.initElements(driver, PaymentPage.class);
+    previewOrderPage = PageFactory.initElements(driver, PreviewOrderPage.class);
+    confirmationPage = PageFactory.initElements(driver, ConfirmationPage.class);
+    accountSidePanelPage = PageFactory.initElements(driver,AccountSidePanelPage.class);
+    orderHistoryPage = PageFactory.initElements(driver,OrderHistoryPage.class);
+    profilePage = PageFactory.initElements(driver,ProfilePage.class);
+    deleteProfilePage = PageFactory.initElements(driver,DeleteProfilePage.class);
     headerPage.selectLanguage("en-gb");
+
     }
 
     @Test
@@ -36,7 +58,7 @@ public class BasketPageTests extends TestBase{
         Double price = Double.parseDouble(booksPage.getPriceChosenProductOnCategoryPage(2));
         booksPage.clickOnAddToBasketOnCategoryPage(2);
         headerPage.clickOnViewBasketBtn();
-        Assert.assertEquals(basketPage.getTotalPriceForProductItem(),price);
+        Assert.assertEquals(basketPage.getTotalPriceForProductItem(0),price);
 
     }
 
@@ -54,8 +76,8 @@ public class BasketPageTests extends TestBase{
         sidePanelPage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddToBasketOnCategoryPage(1);
         headerPage.clickOnViewBasketBtn();
-        basketPage.setProductQuantity("3").clickOnUpdateBtn();
-        Assert.assertEquals(basketPage.getTotalPriceForProductItem(),29.97,0.01);
+        basketPage.setProductQuantity("3").clickOnUpdateBtn(0);
+        Assert.assertEquals(basketPage.getTotalPriceForProductItem(0),29.97,0.01);
 
     }
     @Test
@@ -63,7 +85,7 @@ public class BasketPageTests extends TestBase{
         sidePanelPage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddToBasketOnCategoryPage(1);
         headerPage.clickOnViewBasketBtn();
-        basketPage.setProductQuantity("").clickOnUpdateBtn();
+        basketPage.setProductQuantity("").clickOnUpdateBtn(0);
         Assert.assertEquals(basketPage.getErrorMessage(),"This field is required.");
 
     }
@@ -73,22 +95,20 @@ public class BasketPageTests extends TestBase{
         String productName = booksPage.getNameChosenProductOnCategoryPage(1);
         booksPage.clickOnAddToBasketOnCategoryPage(1);
         headerPage.clickOnViewBasketBtn();
-        basketPage.setProductQuantity("0").clickOnUpdateBtn();
+        basketPage.setProductQuantity1("0","0").clickOnUpdateBtn(0);
         Assert.assertFalse(basketPage.isAddedProductInBasket(productName));
     }
     @Test
-    public void changeTotalPriceAfterDeleteProductItemTest(){
+    public void changeBasketTotalPriceAfterDeleteProductItemTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
-        Double priceFirstProduct = Double.parseDouble(booksPage.getPriceChosenProductOnCategoryPage(1));
         booksPage.clickOnAddToBasketOnCategoryPage(1);
         booksPage.clickOnAddToBasketOnCategoryPage(2);
         headerPage.clickOnViewBasketBtn();
         Double totalBeforeDelete = basketPage.getBasketTotal();
-        basketPage.setProductQuantity("0").clickOnUpdateBtn();
-       // basketPage.setProductQuantity1("1","0");
+        Double priceSecondProduct = basketPage.getPriceForProductItem(1);
+        basketPage.setProductQuantity1("1","0").clickOnUpdateBtn(1);
         Double totalAfterDelete = basketPage.getBasketTotal();
-        Assert.assertEquals(totalAfterDelete,totalBeforeDelete-priceFirstProduct,0.01);
-       // Assert.assertEquals(totalAfterDelete,9.99,0.01);
+        Assert.assertEquals(totalAfterDelete,totalBeforeDelete-priceSecondProduct,0.01);
     }
 
     @Test
@@ -99,6 +119,41 @@ public class BasketPageTests extends TestBase{
         basketPage.clickOnProceedToCheckoutBtn();
         Assert.assertTrue(whoAreYouPage.isWhoAreYouFormDisplayed());
 
+    }
+
+    @Test
+    public void createOrderForUnregisteredUserWithRegistrationOptionTest(){
+        sidePanelPage.clickOnBooksTabOnSidePanel();
+        booksPage.clickOnAddToBasketOnCategoryPage(2);
+        headerPage.clickOnViewBasketBtn();
+        basketPage.clickOnProceedToCheckoutBtn();
+        whoAreYouPage.typeEmailAddress("zebra55@gmail.com").typePassword("Zebra55_1812").selectRegistrationOption().clickOnContinueBtn();
+        registerFormPage.typePassword("Zebra55_1812").typeConfirmPassword("Zebra55_1812").clickOnRegisterBtn();
+        shippingAddressPage.fillShippingAddressForm("Ms", "Sara","Corner",
+                "Friedrichstr. 18", "Nuernberg", "90402", "DE", "+4917542365154").clickOnContinueBtn();
+        paymentPage.clickOnContinueBtnPayment();
+        previewOrderPage.clickOnPlaceOrderBtn();
+        String orderNumber;
+        orderNumber= confirmationPage.getOrderNumber();
+        confirmationPage.clickOnContinueShoppingBtn();
+        headerPage.clickOnAccountBtn();
+        accountSidePanelPage.clickOnOrderHistoryBtn();
+        Assert.assertEquals(orderHistoryPage.getOrderNumber(),orderNumber);
+        accountSidePanelPage.clickOnProfileBtn();
+        profilePage.clickOnDeleteProfileBtn();
+        deleteProfilePage.typeProfilePassword("Zebra55_1812").clickOnDeleteBtn();
+
+    }
+
+    @Test
+    public void checkTotalSumInBasketTest(){
+        sidePanelPage.clickOnBooksTabOnSidePanel();
+        booksPage.clickOnAddToBasketOnCategoryPage(1);
+        booksPage.clickOnAddToBasketOnCategoryPage(2);
+        headerPage.clickOnViewBasketBtn();
+        Double totalPriceForFirstItem = basketPage.getTotalPriceForProductItem(0);
+        Double totalPriceForSecondItem = basketPage.getTotalPriceForProductItem(1);
+        Assert.assertEquals(totalPriceForFirstItem+totalPriceForSecondItem,basketPage.getBasketTotal(),0.01);
     }
 
 

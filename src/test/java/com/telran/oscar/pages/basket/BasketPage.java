@@ -15,18 +15,28 @@ public class BasketPage extends PageBase {
 
     @FindBy(xpath = "//a[@class='btn btn-lg btn-primary btn-block']")
     WebElement proceedToCheckoutBtn;
+
     @FindBy(xpath = "//div[@class='col-sm-4']//a")
     List<WebElement> listProductsInBasket;
+
     @FindBy(xpath = "//div[@class='col-sm-2']/p[@class='price_color align-right']")
-    WebElement totalPrice;
+    List <WebElement> totalPriceList;
+
     @FindBy(xpath = "//div[@class='col-sm-1']/p[@class='price_color align-right']")
-    WebElement price;
+    List <WebElement> priceList;
+
     @FindBy(id = "id_form-0-quantity")
     WebElement productQuantity;
+
+//    @FindBy(xpath = "//span[@class='input-group-btn']/button[@type='submit']")
+//    WebElement updateBtn;
+
     @FindBy(xpath = "//span[@class='input-group-btn']/button[@type='submit']")
-    WebElement updateBtn;
+    List<WebElement> updateBtnList;
+
     @FindBy (xpath = "//span[@class='error-block']")
     WebElement errMessageForEmptyQuantity;
+
     @FindBy(css = "tr:nth-child(2) th:nth-child(2)")
     WebElement basketTotal;
 
@@ -57,13 +67,15 @@ public class BasketPage extends PageBase {
 
     }
 
-    public Double getTotalPriceForProductItem(){
-        Double totalPriceForItem = Double.parseDouble(removeFirstChar(totalPrice.getText()));
-       return totalPriceForItem;
+    public Double getTotalPriceForProductItem(int itemNumber){
+        Double totalPriceForItem = Double.parseDouble(removeFirstChar(totalPriceList.get(itemNumber).getText()));
+         return totalPriceForItem;
+
 
     }
-    public Double getPriceForProductItem(){
-        Double priceForItem = Double.parseDouble(removeFirstChar(price.getText()));
+
+    public Double getPriceForProductItem(int itemNumber){
+        Double priceForItem = Double.parseDouble(removeFirstChar(priceList.get(itemNumber).getText()));
         return priceForItem;
 
 
@@ -80,8 +92,8 @@ public class BasketPage extends PageBase {
     }
 
 
-    public BasketPage clickOnUpdateBtn() {
-        click(updateBtn,1);
+    public BasketPage clickOnUpdateBtn(int productNumber) {
+        click(updateBtnList.get(productNumber), 1);
         return this;
 
     }
