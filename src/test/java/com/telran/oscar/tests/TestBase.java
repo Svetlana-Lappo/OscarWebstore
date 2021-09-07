@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -19,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
     WebDriver driver;
-    String browser;
+   // String browser;
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     @BeforeMethod(alwaysRun = true)
@@ -31,24 +32,25 @@ public class TestBase {
     }
 
     @BeforeMethod
-    public void setUp(){
+    @Parameters("browser")
+    public void setUp(String browser){
         //headless
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("headless");
-//        options.addArguments("window-size=1200x800");
-        //driver = new ChromeDriver(options);
-//        if(browser.equals(BrowserType.CHROME)){
-//            driver = new ChromeDriver();
-//        }else if (browser.equals(BrowserType.FIREFOX)){
-//            driver = new FirefoxDriver();
-//        }
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("window-size=1200x800");
+//        driver = new ChromeDriver(options);
+        if(browser.equalsIgnoreCase("chrome")){
+            driver = new ChromeDriver(options);
+        }else if (browser.equalsIgnoreCase("firefox")){
+            driver = new FirefoxDriver(options);
+        }
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
         driver.get("https://selenium1py.pythonanywhere.com/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @AfterMethod(enabled = false)
+    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result){
 
         if(result.isSuccess()){
