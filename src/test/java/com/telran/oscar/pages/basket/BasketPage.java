@@ -28,9 +28,6 @@ public class BasketPage extends PageBase {
     @FindBy(id = "id_form-0-quantity")
     WebElement productQuantity;
 
-//    @FindBy(xpath = "//span[@class='input-group-btn']/button[@type='submit']")
-//    WebElement updateBtn;
-
     @FindBy(xpath = "//span[@class='input-group-btn']/button[@type='submit']")
     List<WebElement> updateBtnList;
 
@@ -59,8 +56,7 @@ public class BasketPage extends PageBase {
         for (WebElement product:listProductsInBasket) {
 
          if(product.getText().contains(title)) {
-             return true;
-        }
+             return true; }
         }
         }
             return false;
@@ -68,15 +64,13 @@ public class BasketPage extends PageBase {
     }
 
     public Double getTotalPriceForProductItem(int itemNumber){
-        Double totalPriceForItem = Double.parseDouble(removeFirstChar(totalPriceList.get(itemNumber).getText()));
-         return totalPriceForItem;
+        return Double.parseDouble(removeFirstChar(totalPriceList.get(itemNumber).getText()));
 
 
     }
 
     public Double getPriceForProductItem(int itemNumber){
-        Double priceForItem = Double.parseDouble(removeFirstChar(priceList.get(itemNumber).getText()));
-        return priceForItem;
+        return Double.parseDouble(removeFirstChar(priceList.get(itemNumber).getText()));
 
 
     }

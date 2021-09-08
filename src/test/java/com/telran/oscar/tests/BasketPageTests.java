@@ -5,10 +5,7 @@ import com.telran.oscar.pages.home.ContentPage;
 import com.telran.oscar.pages.home.HeaderPage;
 import com.telran.oscar.pages.home.SidePanelPage;
 import com.telran.oscar.pages.product.*;
-import com.telran.oscar.pages.user.AccountSidePanelPage;
-import com.telran.oscar.pages.user.DeleteProfilePage;
-import com.telran.oscar.pages.user.OrderHistoryPage;
-import com.telran.oscar.pages.user.ProfilePage;
+import com.telran.oscar.pages.user.*;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -30,6 +27,7 @@ public class BasketPageTests extends TestBase{
     OrderHistoryPage orderHistoryPage;
     ProfilePage profilePage;
     DeleteProfilePage deleteProfilePage;
+    LoginPage loginPage;
 
 
     @BeforeMethod
@@ -48,11 +46,12 @@ public class BasketPageTests extends TestBase{
     orderHistoryPage = PageFactory.initElements(driver,OrderHistoryPage.class);
     profilePage = PageFactory.initElements(driver,ProfilePage.class);
     deleteProfilePage = PageFactory.initElements(driver,DeleteProfilePage.class);
+    loginPage = PageFactory.initElements(driver,LoginPage.class);
     headerPage.selectLanguage("en-gb");
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void verifyingPriceOfProductAddedToBasketTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
         Double price = Double.parseDouble(booksPage.getPriceChosenProductOnCategoryPage(2));
@@ -62,7 +61,7 @@ public class BasketPageTests extends TestBase{
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void verifyingNameOfProductAddedToBasketTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
         String productName = booksPage.getNameChosenProductOnCategoryPage(1);
@@ -80,7 +79,7 @@ public class BasketPageTests extends TestBase{
         Assert.assertEquals(basketPage.getTotalPriceForProductItem(0),29.97,0.01);
 
     }
-    @Test
+    @Test(enabled = false)
     public void changeProductQuantityNegativeTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddToBasketOnCategoryPage(1);
@@ -102,6 +101,7 @@ public class BasketPageTests extends TestBase{
     public void changeBasketTotalPriceAfterDeleteProductItemTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddToBasketOnCategoryPage(1);
+        booksPage.pause(500);
         booksPage.clickOnAddToBasketOnCategoryPage(2);
         headerPage.clickOnViewBasketBtn();
         Double totalBeforeDelete = basketPage.getBasketTotal();
@@ -111,7 +111,7 @@ public class BasketPageTests extends TestBase{
         Assert.assertEquals(totalAfterDelete,totalBeforeDelete-priceSecondProduct,0.01);
     }
 
-    @Test
+    @Test(enabled = false)
     public void orderUnregisteredUserTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddToBasketOnCategoryPage(1);
@@ -155,6 +155,25 @@ public class BasketPageTests extends TestBase{
         Double totalPriceForSecondItem = basketPage.getTotalPriceForProductItem(1);
         Assert.assertEquals(totalPriceForFirstItem+totalPriceForSecondItem,basketPage.getBasketTotal(),0.01);
     }
+
+    @Test(enabled = false)
+    public void createOrderWithPresentAddress(){
+        headerPage.goToRegistrationAndLogin();
+        loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn().takeScreenshot();
+        sidePanelPage.clickOnBooksTabOnSidePanel();
+        booksPage.clickOnAddToBasketOnCategoryPage(1);
+        headerPage.clickOnViewBasketBtn();
+        basketPage.clickOnProceedToCheckoutBtn();
+        shippingAddressPage.clickOnShipToThisAddressBtn();
+        paymentPage.clickOnContinueBtnPayment();
+        previewOrderPage.clickOnPlaceOrderBtn();
+        String orderNumber = confirmationPage.getOrderNumber();
+        confirmationPage.clickOnContinueShoppingBtn();
+        headerPage.clickOnAccountBtn();
+        accountSidePanelPage.clickOnOrderHistoryBtn();
+        Assert.assertEquals(orderHistoryPage.getOrderNumber(),orderNumber);
+    }
+
 
 
 }

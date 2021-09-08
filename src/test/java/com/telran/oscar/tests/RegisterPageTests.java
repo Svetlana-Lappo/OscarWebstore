@@ -30,7 +30,7 @@ public class RegisterPageTests extends TestBase{
         headerPage.goToRegistrationAndLogin();
     }
 
-    @Test
+    @Test(enabled = false)
     public void registerMainUserPositiveTest(){
 
         registerPage.fillRegisterForm("zebra@gmail.com", "Zebra_1812", "Zebra_1812").clickOnRegisterBtn();
@@ -38,11 +38,15 @@ public class RegisterPageTests extends TestBase{
 
     }
 
-    @Test(priority = 1, groups = {"functional"})
+    @Test(groups = {"functional"},enabled = false)
     public void registerNewUserPositiveTest(){
 
         registerPage.fillRegisterForm("zebra" + (System.currentTimeMillis()/1000%3600) + "@gmail.com", "Zebra_1812", "Zebra_1812").clickOnRegisterBtn();
+        registerPage.pause(1000);
         Assert.assertTrue(headerPage.isLogoutBtnDisplayed());
+        headerPage.clickOnAccountBtn();
+        profilePage.clickOnDeleteProfileBtn();
+        deleteProfilePage.typeProfilePassword("Zebra_1812").clickOnDeleteBtn();
 
     }
 
@@ -52,20 +56,20 @@ public class RegisterPageTests extends TestBase{
         Assert.assertTrue(registerPage.isRegisterFormDisplayed());
     }
 
-    @Test(dataProviderClass = DataProviders.class, dataProvider = "registerNegativePasswords",priority = 3)
+    @Test(enabled = false, dataProviderClass = DataProviders.class, dataProvider = "registerNegativePasswords",priority = 3)
     public void registerWithInvalidPassword(String password){
         registerPage.fillRegisterForm("zebra1@gmail.com", password, password).clickOnRegisterBtn();
         Assert.assertTrue(registerPage.isRegisterFormDisplayed());
 
     }
 
-    @Test(dataProviderClass = DataProviders.class, dataProvider = "registerDifferentPasswords",priority = 4)
+    @Test(enabled = false, dataProviderClass = DataProviders.class, dataProvider = "registerDifferentPasswords",priority = 4)
     public void registerWithDifferentPassword(String password, String confirmPassword){
         registerPage.fillRegisterForm("zebra1@gmail.com", password, confirmPassword).clickOnRegisterBtn();
         Assert.assertEquals(registerPage.errorDifferentPswd(),"The two password fields didn't match.");
     }
 
-@AfterGroups(groups = {"functional"})
+@AfterGroups("functional")
     public void cleanUp(){
     headerPage.clickOnAccountBtn();
     profilePage.clickOnDeleteProfileBtn();

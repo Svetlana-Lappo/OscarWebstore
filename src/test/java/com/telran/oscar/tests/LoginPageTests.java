@@ -21,9 +21,11 @@ public class LoginPageTests extends TestBase{
         headerPage.goToRegistrationAndLogin();
     }
 
-    @Test
+    @Test(enabled = false)
     public void loginUserPositiveTest(){
-        loginPage.fillLoginForm("Zebra@gmail.com","Zebra_1812").clickOnLogInBtn().takeScreenshot();
+     // loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn().takeScreenshot();
+        loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn();
+        loginPage.pause(1000);
         Assert.assertTrue(headerPage.isLogoutBtnDisplayed());
     }
 
@@ -33,7 +35,7 @@ public class LoginPageTests extends TestBase{
         Assert.assertTrue(loginPage.isLoginFormDisplayed());
     }
 
-    @Test(dataProviderClass = DataProviders.class, dataProvider = "loginInvalidPasswords")
+    @Test(enabled = false, dataProviderClass = DataProviders.class, dataProvider = "loginInvalidPasswords")
     public void loginUserWithInvalidPassword(String password){
         loginPage.fillLoginForm("zebra@gmail.com",password).clickOnLogInBtn();
         Assert.assertTrue(loginPage.isLoginFormDisplayed());

@@ -46,14 +46,14 @@ public class HomePageTests extends TestBase{
         offersPage = PageFactory.initElements(driver,OffersPage.class);
     }
 
-    @Test
-    public void SelectMenuPositiveTest(){
+    @Test(enabled = false)
+    public void selectMenuPositiveTest(){
         headerPage.selectCategory();
         Assert.assertTrue(productPage.isItProductPage());
     }
 
     @Test
-    public void ElementsDisplayedTest(){
+    public void elementsDisplayedTest(){
         Assert.assertTrue(headerPage.isSelectLanguageBtnDisplayed());
         Assert.assertTrue(headerPage.isGoBtnDisplayed());
         Assert.assertTrue(headerPage.isLoginOrRegisterBtnDisplayed());
@@ -65,7 +65,8 @@ public class HomePageTests extends TestBase{
         Assert.assertTrue(sidePanelPage.isSearchFieldDisplayed());
 
     }
-    @Test public void ElementsDisplayedForRegisteredUserTest(){
+    @Test(enabled = false)
+    public void elementsDisplayedForRegisteredUserTest(){
         headerPage.selectLanguage("en-gb");
         headerPage.goToRegistrationAndLogin();
         loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn();
@@ -74,7 +75,7 @@ public class HomePageTests extends TestBase{
     }
 
     @Test
-    public void ElementsClickableTest(){
+    public void elementsClickableTest(){
         Assert.assertTrue(headerPage.isLoginOrRegisterBtnClickable());
         Assert.assertTrue(headerPage.isGoBtnClickable());
         Assert.assertTrue(headerPage.isSelectLanguageBtnClickable());
@@ -84,30 +85,30 @@ public class HomePageTests extends TestBase{
 
     }
 
-    @Test
-    public void ElementsClickableForRegisteredUserTest(){
+    @Test(enabled = false)
+    public void elementsClickableForRegisteredUserTest(){
         headerPage.selectLanguage("en-gb");
         headerPage.goToRegistrationAndLogin();
         loginPage.fillLoginForm("zebra@gmail.com","Zebra_1812").clickOnLogInBtn();
         Assert.assertTrue(headerPage.isLogoutBtnClickable());
         Assert.assertTrue(headerPage.isAccountBtnClickable());
     }
-    @Test
+    @Test(enabled = false)
     public void loginOrRegisterBtnRedirectToLoginOrRegisterPagesTest(){
         headerPage.goToRegistrationAndLogin();
         Assert.assertTrue(registerPage.isRegisterFormDisplayed());
     }
-    @Test
+    @Test(enabled = false)
     public void viewBasketBtnRedirectToBasketTest(){
         headerPage.clickOnViewBasketBtn();
         Assert.assertTrue(basketPage.isBasketPageDisplayed());
     }
-    @Test
+    @Test(enabled = false)
     public void siteTitleRedirectToHomePage(){
         headerPage.clickOnLogoLink();
         Assert.assertTrue(sidePanelPage.isNavigationPanelDisplayed());
     }
-    @Test
+    @Test(enabled = false)
     public void accountBtnRedirectToAccountPage(){
         headerPage.selectLanguage("en-gb");
         headerPage.goToRegistrationAndLogin();
@@ -115,7 +116,7 @@ public class HomePageTests extends TestBase{
         headerPage.clickOnAccountBtn();
         Assert.assertTrue(accountSidePanelPage.isAccountSidePanelDisplayed());
     }
-    @Test
+    @Test(enabled = false)
     public void logoutBtnRedirectToHomePage(){
         headerPage.selectLanguage("en-gb");
         headerPage.goToRegistrationAndLogin();
@@ -124,28 +125,28 @@ public class HomePageTests extends TestBase{
         Assert.assertTrue(contentPage.isMainContainDisplayed());
 
     }
-    @Test
+    @Test(enabled = false)
     public void allProductsTabRedirectToAllProductsPage(){
         headerPage.selectLanguage("en-gb");
         sidePanelPage.clickOnAllProductsTabOnSidePanel();
         Assert.assertTrue(productPage.isItProductPage());
 
     }
-    @Test
+    @Test(enabled = false)
     public void BooksTabRedirectToBooksPage(){
         headerPage.selectLanguage("en-gb");
         sidePanelPage.clickOnBooksTabOnSidePanel();
         Assert.assertTrue(booksPage.isBooksPageDisplayed());
 
     }
-    @Test
+    @Test(enabled = false)
     public void ClothingTabRedirectToClothingPage(){
         headerPage.selectLanguage("en-gb");
         sidePanelPage.clickOnClothingTabOnSidePanel();
         Assert.assertTrue(clothingPage.isClothingPageDisplayed());
 
     }
-    @Test
+    @Test(enabled = false)
     public void OffersTabRedirectToOffersPage(){
         headerPage.selectLanguage("en-gb");
         sidePanelPage.clickOnOffersTabOnSidePanel();

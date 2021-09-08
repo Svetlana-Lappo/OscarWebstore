@@ -9,9 +9,7 @@ import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -20,7 +18,6 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
     WebDriver driver;
-   // String browser;
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     @BeforeMethod(alwaysRun = true)
@@ -32,13 +29,12 @@ public class TestBase {
     }
 
     @BeforeMethod
-    @Parameters("browser")
+   @Parameters("browser")
     public void setUp(String browser){
         //headless
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("window-size=1200x800");
-//        driver = new ChromeDriver(options);
         if(browser.equalsIgnoreCase("chrome")){
             driver = new ChromeDriver(options);
         }else if (browser.equalsIgnoreCase("firefox")){
@@ -51,7 +47,7 @@ public class TestBase {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown(ITestResult result){
+    public void endTestResult(ITestResult result){
 
         if(result.isSuccess()){
             logger.info("Test result: PASSED");
@@ -63,5 +59,7 @@ public class TestBase {
         logger.info("*************************************");
         driver.quit();
 
+
     }
+
 }

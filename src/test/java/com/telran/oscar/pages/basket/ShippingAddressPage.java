@@ -29,6 +29,8 @@ public class ShippingAddressPage extends PageBase {
     WebElement continueBtnShipping;
     @FindBy(css = ".error-block")
     WebElement errorForWrongPostcode;
+    @FindBy(css = ".ship-address")
+    WebElement shipToThisAddressBtn;
 
 
 
@@ -50,5 +52,10 @@ public class ShippingAddressPage extends PageBase {
 
     public String getErrorMessageForWrongPostCode(){
         return errorForWrongPostcode.getText();
+    }
+
+    public PaymentPage clickOnShipToThisAddressBtn(){
+        click(shipToThisAddressBtn,2);
+        return new PaymentPage(driver);
     }
 }

@@ -19,7 +19,7 @@ public class HeaderPage extends PageBase {
     @FindBy(id = "login_link")
     WebElement loginAndRegistrationTab;
 
-    @FindBy(id = "logout_link")
+    @FindBy(css = ".icon-signout")
     WebElement logoutBtn;
 
     @FindBy(css = "[name='language']")
@@ -69,7 +69,7 @@ public class HeaderPage extends PageBase {
 
 
     public boolean isLogoutBtnClickable(){
-      return isElementClickable(logoutBtn,1);
+      return isElementClickable(logoutBtn,2);
     }
 
     public void selectLanguage(String language) {

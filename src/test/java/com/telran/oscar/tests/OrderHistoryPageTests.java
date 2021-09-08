@@ -69,7 +69,7 @@ public class OrderHistoryPageTests extends TestBase{
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void createOderWithWrongPostcodeNegativeTest(){
         sidePanelPage.clickOnBooksTabOnSidePanel();
         booksPage.clickOnAddToBasketOnCategoryPage(3);
