@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" parallel="classes" thread-count="3">
+    <test name="Regression">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="com.telran.oscar.tests.BasketPageTests"/>
+            <class name="com.telran.oscar.tests.LoginPageTests"/>
+            <class name="com.telran.oscar.tests.RegisterPageTests"/>
+            <class name="com.telran.oscar.tests.HomePageTests"/>
+
+        </classes>
+    </test>
+
+
+</suite>

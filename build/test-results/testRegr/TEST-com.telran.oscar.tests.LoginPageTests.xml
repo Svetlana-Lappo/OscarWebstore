@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.oscar.tests.LoginPageTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-09-09T07:25:13" hostname="DESKTOP-66I6I7I" time="49.884">
+  <properties/>
+  <testcase name="loginUserPositiveTest" classname="com.telran.oscar.tests.LoginPageTests" time="6.175"/>
+  <testcase name="loginUserWithInvalidEmail[0](zebra@-gmail.com)" classname="com.telran.oscar.tests.LoginPageTests" time="1.055"/>
+  <testcase name="loginUserWithInvalidEmail[1]()" classname="com.telran.oscar.tests.LoginPageTests" time="0.872"/>
+  <testcase name="loginUserWithInvalidEmail[2](zebra@)" classname="com.telran.oscar.tests.LoginPageTests" time="1.033"/>
+  <testcase name="loginUserWithInvalidEmail[3](zebragmail.com)" classname="com.telran.oscar.tests.LoginPageTests" time="1.314"/>
+  <testcase name="loginUserWithInvalidEmail[4](zebra@.com)" classname="com.telran.oscar.tests.LoginPageTests" time="0.907"/>
+  <system-out><![CDATA[09:25:18.087 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Start test: elementsDisplayedTest
+09:25:19.222 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:19.223 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:19.224 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:26.617 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:26.618 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:26.618 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:35.494 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:35.494 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:35.494 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:43.959 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:43.960 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:43.960 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:53.494 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Start test: changePriceAfterUpdateProductQuantityTest
+09:25:54.781 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:54.782 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:54.782 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:26:02.930 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:26:02.930 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:26:02.931 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - *************************************
+]]></system-out>
+  <system-err><![CDATA[Sep. 09, 2021 9:25:14 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 43974
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 19745
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+]]></system-err>
+</testsuite>

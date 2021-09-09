@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.oscar.tests.BasketPageTests" tests="5" skipped="0" failures="1" errors="0" timestamp="2021-09-09T07:25:12" hostname="DESKTOP-66I6I7I" time="119.345">
+  <properties/>
+  <testcase name="changeBasketTotalPriceAfterDeleteProductItemTest" classname="com.telran.oscar.tests.BasketPageTests" time="34.671">
+    <failure message="org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;tr:nth-child(2) th:nth-child(2)&quot;}&#10;  (Session info: headless chrome=93.0.4577.63)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-66I6I7I', ip: '192.168.0.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 93.0.4577.63, chrome: {chromedriverVersion: 93.0.4577.15 (660fc11082ba5..., userDataDir: C:\Users\HP\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:58270}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: b3451ce365f5e2f09377ea3d5403eb50&#10;*** Element info: {Using=css selector, value=tr:nth-child(2) th:nth-child(2)}" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;tr:nth-child(2) th:nth-child(2)&quot;}
+  (Session info: headless chrome=93.0.4577.63)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-66I6I7I', ip: '192.168.0.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 93.0.4577.63, chrome: {chromedriverVersion: 93.0.4577.15 (660fc11082ba5..., userDataDir: C:\Users\HP\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:58270}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b3451ce365f5e2f09377ea3d5403eb50
+*** Element info: {Using=css selector, value=tr:nth-child(2) th:nth-child(2)}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy16.getText(Unknown Source)
+	at com.telran.oscar.pages.basket.BasketPage.getBasketTotal(BasketPage.java:100)
+	at com.telran.oscar.tests.BasketPageTests.changeBasketTotalPriceAfterDeleteProductItemTest(BasketPageTests.java:107)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+</failure>
+  </testcase>
+  <testcase name="changePriceAfterUpdateProductQuantityTest" classname="com.telran.oscar.tests.BasketPageTests" time="6.504"/>
+  <testcase name="checkTotalSumInBasketTest" classname="com.telran.oscar.tests.BasketPageTests" time="6.463"/>
+  <testcase name="createOrderForUnregisteredUserWithRegistrationOptionTest" classname="com.telran.oscar.tests.BasketPageTests" time="26.86"/>
+  <testcase name="deleteProductItemFromBasket" classname="com.telran.oscar.tests.BasketPageTests" time="13.539"/>
+  <system-out><![CDATA[09:25:49.412 [TestNG-test=Regression-1] ERROR com.telran.oscar.tests.TestBase - Test result: FAILD
+ru.yandex.qatools.ashot.Screenshot@27c8b0e5
+09:25:49.413 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:49.416 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:51.125 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Start test: loginUserWithInvalidEmail
+09:25:51.126 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - --> With data: [zebragmail.com]
+09:25:51.138 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Start test: registerWithInvalidEmail
+09:25:51.139 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - --> With data: [zebra@]
+09:26:01.468 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:26:01.469 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:26:01.469 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:26:17.232 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:26:17.233 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:26:17.233 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:26:22.445 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Start test: createOrderForUnregisteredUserWithRegistrationOptionTest
+09:26:50.492 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:26:50.492 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:26:50.492 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:26:56.971 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Start test: deleteProductItemFromBasket
+09:27:11.878 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:27:11.878 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:27:11.878 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - *************************************
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 12557
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:25:47 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 9857
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:25:51 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 32383
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:26:19 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 37523
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:26:52 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>

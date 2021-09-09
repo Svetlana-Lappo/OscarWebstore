@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.oscar.tests.RegisterPageTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-09-09T07:25:25" hostname="DESKTOP-66I6I7I" time="29.625">
+  <properties/>
+  <testcase name="registerWithInvalidEmail[0](zebra@gmailcom)" classname="com.telran.oscar.tests.RegisterPageTests" time="1.577"/>
+  <testcase name="registerWithInvalidEmail[1](zebragmail.com)" classname="com.telran.oscar.tests.RegisterPageTests" time="1.488"/>
+  <testcase name="registerWithInvalidEmail[2](@gmail.com)" classname="com.telran.oscar.tests.RegisterPageTests" time="1.245"/>
+  <testcase name="registerWithInvalidEmail[3](zebra@)" classname="com.telran.oscar.tests.RegisterPageTests" time="1.623"/>
+  <system-out><![CDATA[09:25:23.852 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Start test: loginUserWithInvalidEmail
+09:25:23.853 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - --> With data: [zebra@-gmail.com]
+09:25:24.004 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Start test: registerWithInvalidEmail
+09:25:24.006 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - --> With data: [zebra@gmailcom]
+09:25:27.230 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:27.230 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:27.230 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:30.243 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Start test: loginUserWithInvalidEmail
+09:25:30.245 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - --> With data: []
+09:25:33.730 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Start test: registerWithInvalidEmail
+09:25:33.730 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - --> With data: [zebragmail.com]
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //a[@class='btn btn-default']' (tried for 2 second(s) with 500 milliseconds interval)
+09:25:38.599 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:38.600 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:38.600 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:41.079 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Start test: loginUserWithInvalidEmail
+09:25:41.080 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - --> With data: [zebra@]
+09:25:42.167 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Start test: registerWithInvalidEmail
+09:25:42.168 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - --> With data: [@gmail.com]
+09:25:45.062 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:45.062 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:45.063 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:55.278 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:55.278 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:55.279 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - *************************************
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 7168
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 43715
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:25:20 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Sep. 09, 2021 9:25:21 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 35061
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 9028
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:25:28 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Sep. 09, 2021 9:25:29 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Sep. 09, 2021 9:25:37 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 1254
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:25:40 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 35318
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 14837
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:25:46 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>

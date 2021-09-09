@@ -1,0 +1,98 @@
+com/telran/oscar/pages/basket/ConfirmationPage.java
+ com.telran.oscar.pages.basket.ConfirmationPage
+com/telran/oscar/pages/product/ProductPage.java
+ com.telran.oscar.pages.product.ProductPage
+com/telran/oscar/tests/RegisterPageTests.java
+ com.telran.oscar.tests.RegisterPageTests
+com/telran/oscar/pages/product/CategoriesNaviPanelPage.java
+ com.telran.oscar.pages.product.CategoriesNaviPanelPage
+com/telran/oscar/pages/PageBase.java
+ com.telran.oscar.pages.PageBase
+com/telran/oscar/pages/user/RegisterPage.java
+ com.telran.oscar.pages.user.RegisterPage
+com/telran/oscar/pages/product/BooksPage.java
+ com.telran.oscar.pages.product.BooksPage
+com/telran/oscar/api/APITests.java
+ com.telran.oscar.api.APITests
+com/telran/oscar/utils/DataProviders.java
+ com.telran.oscar.utils.DataProviders
+com/telran/oscar/pages/user/DeleteProfilePage.java
+ com.telran.oscar.pages.user.DeleteProfilePage
+com/telran/oscar/pages/basket/RegisterFormPage.java
+ com.telran.oscar.pages.basket.RegisterFormPage
+com/telran/oscar/pages/basket/ShippingAddressPage.java
+ com.telran.oscar.pages.basket.ShippingAddressPage
+com/telran/oscar/pages/user/LoginPage.java
+ com.telran.oscar.pages.user.LoginPage
+com/telran/oscar/pages/user/EditAddressPage.java
+ com.telran.oscar.pages.user.EditAddressPage
+com/telran/oscar/pages/basket/PreviewOrderPage.java
+ com.telran.oscar.pages.basket.PreviewOrderPage
+com/telran/oscar/tests/HomePageTests.java
+ com.telran.oscar.tests.HomePageTests
+com/telran/oscar/tests/LoginPageTests.java
+ com.telran.oscar.tests.LoginPageTests
+com/telran/oscar/pages/user/Profile_ChangePasswordPage.java
+ com.telran.oscar.pages.user.Profile_ChangePasswordPage
+com/telran/oscar/pages/home/HeaderPage.java
+ com.telran.oscar.pages.home.HeaderPage
+com/telran/oscar/pages/user/ProfilePage.java
+ com.telran.oscar.pages.user.ProfilePage
+com/telran/oscar/tests/OrderHistoryPageTests.java
+ com.telran.oscar.tests.OrderHistoryPageTests
+com/telran/oscar/pages/product/NonFictionPage.java
+ com.telran.oscar.pages.product.NonFictionPage
+com/telran/oscar/pages/product/FictionPage.java
+ com.telran.oscar.pages.product.FictionPage
+com/telran/oscar/pages/home/ContentPage.java
+ com.telran.oscar.pages.home.ContentPage
+com/telran/oscar/pages/product/OffersPage.java
+ com.telran.oscar.pages.product.OffersPage
+com/telran/oscar/pages/basket/PaymentPage.java
+ com.telran.oscar.pages.basket.PaymentPage
+com/telran/oscar/pages/user/Profile_EditDataPage.java
+ com.telran.oscar.pages.user.Profile_EditDataPage
+com/telran/oscar/pages/user/EmailHistoryPage.java
+ com.telran.oscar.pages.user.EmailHistoryPage
+com/telran/oscar/tests/TestBase.java
+ com.telran.oscar.tests.TestBase
+com/telran/oscar/pages/product/HackingPage.java
+ com.telran.oscar.pages.product.HackingPage
+com/telran/oscar/tests/ProfilePageTests.java
+ com.telran.oscar.tests.ProfilePageTests
+com/telran/oscar/pages/user/WishLists_DefaultPage.java
+ com.telran.oscar.pages.user.WishLists_DefaultPage
+com/telran/oscar/pages/user/AddressBookPage.java
+ com.telran.oscar.pages.user.AddressBookPage
+com/telran/oscar/tests/WishListsPageTests.java
+ com.telran.oscar.tests.WishListsPageTests
+com/telran/oscar/pages/home/SidePanelPage.java
+ com.telran.oscar.pages.home.SidePanelPage
+com/telran/oscar/pages/user/OrderHistoryPage.java
+ com.telran.oscar.pages.user.OrderHistoryPage
+com/telran/oscar/pages/product/EssentialProgrammingPage.java
+ com.telran.oscar.pages.product.EssentialProgrammingPage
+com/telran/oscar/tests/EmailHistoryPageTests.java
+ com.telran.oscar.tests.EmailHistoryPageTests
+com/telran/oscar/pages/user/WishListsPage.java
+ com.telran.oscar.pages.user.WishListsPage
+com/telran/oscar/pages/user/AccountSidePanelPage.java
+ com.telran.oscar.pages.user.AccountSidePanelPage
+com/telran/oscar/pages/product/CompInLiteraturePage.java
+ com.telran.oscar.pages.product.CompInLiteraturePage
+com/telran/oscar/pages/basket/BasketPage.java
+ com.telran.oscar.pages.basket.BasketPage
+com/telran/oscar/pages/product/ItemBookPage.java
+ com.telran.oscar.pages.product.ItemBookPage
+com/telran/oscar/pages/user/AddNewAddressPage.java
+ com.telran.oscar.pages.user.AddNewAddressPage
+com/telran/oscar/tests/BasketPageTests.java
+ com.telran.oscar.tests.BasketPageTests
+com/telran/oscar/tests/AddressBookPageTests.java
+ com.telran.oscar.tests.AddressBookPageTests
+com/telran/oscar/pages/product/ClothingPage.java
+ com.telran.oscar.pages.product.ClothingPage
+com/telran/oscar/tests/ProductPageTests.java
+ com.telran.oscar.tests.ProductPageTests
+com/telran/oscar/pages/basket/WhoAreYouPage.java
+ com.telran.oscar.pages.basket.WhoAreYouPage

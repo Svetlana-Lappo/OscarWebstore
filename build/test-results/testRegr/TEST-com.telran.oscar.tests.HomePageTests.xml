@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.oscar.tests.HomePageTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-09-09T07:25:10" hostname="DESKTOP-66I6I7I" time="7.979">
+  <properties/>
+  <testcase name="elementsClickableTest" classname="com.telran.oscar.tests.HomePageTests" time="0.97"/>
+  <testcase name="elementsDisplayedTest" classname="com.telran.oscar.tests.HomePageTests" time="0.526"/>
+  <system-out><![CDATA[09:25:10.422 [TestNG-test=Regression-3] INFO  com.telran.oscar.tests.TestBase - Start test: loginUserPositiveTest
+09:25:10.482 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Start test: elementsClickableTest
+09:25:10.504 [TestNG-test=Regression-1] INFO  com.telran.oscar.tests.TestBase - Start test: changeBasketTotalPriceAfterDeleteProductItemTest
+09:25:11.611 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:11.613 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:11.613 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - *************************************
+09:25:18.619 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Test result: PASSED
+09:25:18.619 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - Stop test: null
+09:25:18.620 [TestNG-test=Regression-2] INFO  com.telran.oscar.tests.TestBase - *************************************
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 25020
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 17931
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 93.0.4577.15 (660fc11082ba57405eca2e8c49c3e1af756fbfae-refs/branch-heads/4577@{#203}) on port 13437
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep. 09, 2021 9:25:07 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Sep. 09, 2021 9:25:07 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Sep. 09, 2021 9:25:07 VORM. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
